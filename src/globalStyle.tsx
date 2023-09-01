@@ -21,6 +21,9 @@ const globalStyle = () => (
             'sans-serif',
           ],
         },
+        div: {
+          color: '#3e3e3e',
+        },
       },
     ]}
   />

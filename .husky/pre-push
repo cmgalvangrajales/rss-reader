@@ -1,2 +1,23 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+local_branch_name="$(git rev-parse --abbrev-ref HEAD)"
+
+valid_branch_regex='^((fix|feat|wip|bug|junk|chore|hotfix|integration)\/[a-zA-Z0-9\-]+)$'
+
+echo "Checking branch convention"
+if [[ ! $local_branch_name =~ $valid_branch_regex ]];
+then
+  echo "🚨 Wrong branch name convention! 😕"
+  echo "The branch name must have this format:"
+  echo "<fix|feat|wip|bug|junk|chore|hotfix|integration>/<jira ref>-<jira id>-<optional description>"
+  echo "-"
+  echo "Example:"
+  echo "feat/WEB-123"
+  echo "-"
+  echo "Your branch name was:"
+  echo $local_branch_name
+  exit 1
+else
+  echo "✅  The branch have correct convention"
+fi
