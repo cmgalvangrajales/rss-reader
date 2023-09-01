@@ -1,3 +1,6 @@
 {
-  "containers.Home.helloWorld": "Vite + React"
+  "containers.Home.helloWorld": "Vite + React",
+  "containers.Sider.allArticles": "All articles",
+  "containers.Sider.readLater": "Read later",
+  "containers.Sider.read": "Already read"
 }
