@@ -1,9 +1,9 @@
 import { FormattedMessage } from 'react-intl';
 
-import message from './Home.message';
+import message from './AlreadyRead.message';
 
-function Home() {
+function AlreadyReadPage() {
   return <FormattedMessage {...message.helloWorld} />;
 }
 
-export default Home;
+export default AlreadyReadPage;

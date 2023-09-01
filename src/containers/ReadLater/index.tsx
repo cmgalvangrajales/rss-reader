@@ -1,9 +1,9 @@
 import { FormattedMessage } from 'react-intl';
 
-import message from './Home.message';
+import message from './ReadLater.message';
 
-function Home() {
+function ReadLater() {
   return <FormattedMessage {...message.helloWorld} />;
 }
 
-export default Home;
+export default ReadLater;

@@ -1,8 +1,3 @@
-/**
- *
- * aa
- *
- **/
 module.exports = {
   collectCoverageFrom: ['**/*.{ts,tsx}', '!**/node_modules/**', '!**/tests/**', '!**/src/environment/**', '!vite-env.d.ts'],
   coverageThreshold: {

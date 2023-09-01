@@ -29,7 +29,10 @@ export const theme: AppThemeInterface = {
   },
   palette: {
     blue50: '#1E65D2',
+    blue70: '#4751B4',
     gray20: '#878ECE',
+    gray30: '#F1F1F9',
+    white: '#FFFFFF',
   },
   typography: {
     Base215: {
