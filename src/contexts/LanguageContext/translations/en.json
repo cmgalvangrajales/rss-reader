@@ -1,9 +1,5 @@
 {
-  "containers.Home.helloWorld": "Vite + React",
-  "containers.Detail.helloWorld": "Detail: Vite + React",
-  "containers.ReadLater.helloWorld": "ReadLater: Vite + React",
-  "containers.AlreadyRead.helloWorld": "AlreadyRead: Vite + React",
-  "containers.Sider.allArticles": "All articles",
-  "containers.Sider.readLater": "Read later",
-  "containers.Sider.read": "Already read"
+  "containers.Header.mark": "Simple RSS Reader by Carlos",
+  "containers.Home.components.searchPlaceHolder": "input search text",
+  "containers.Sider.allArticles": "All articles"
 }

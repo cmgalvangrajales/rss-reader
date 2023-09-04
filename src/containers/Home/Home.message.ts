@@ -1,9 +1,9 @@
 import { defineMessages } from 'react-intl';
 
-const prefix = 'containers.Home';
+const prefix = 'containers.Home.components';
 
 export default defineMessages({
-  helloWorld: {
-    id: `${prefix}.helloWorld`,
+  searchPlaceHolder: {
+    id: `${prefix}.searchPlaceHolder`,
   },
 });

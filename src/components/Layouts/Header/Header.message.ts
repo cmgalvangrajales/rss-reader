@@ -1,9 +1,9 @@
 import { defineMessages } from 'react-intl';
 
-const prefix = 'containers.ReadLater';
+const prefix = 'containers.Header';
 
 export default defineMessages({
-  helloWorld: {
-    id: `${prefix}.helloWorld`,
+  mark: {
+    id: `${prefix}.mark`,
   },
 });

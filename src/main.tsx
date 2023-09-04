@@ -7,8 +7,6 @@ import { AppThemeProvider } from '@contexts/ThemeContext';
 
 import App from '@pages/App';
 
-import './index.css';
-
 const container = document.getElementById('root');
 
 ReactDOM.createRoot(container!).render(

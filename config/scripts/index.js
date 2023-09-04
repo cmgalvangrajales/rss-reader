@@ -1,8 +1,4 @@
 /* eslint-disable no-console */
-
-/* const chalk = require('chalk');
-const path = require('path');
-const fs = require('fs'); */
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';

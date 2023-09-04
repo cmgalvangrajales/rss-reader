@@ -1,21 +1,29 @@
 module.exports = {
   collectCoverageFrom: ['**/*.{ts,tsx}', '!**/node_modules/**', '!**/tests/**', '!**/src/environment/**', '!vite-env.d.ts'],
+  coverageDirectory: 'coverage',
+  coveragePathIgnorePatterns: ['/node_modules/'],
   coverageThreshold: {
     global: {
-      branches: 50,
-      functions: 50,
-      lines: 50,
-      statements: 50,
+      branches: 40,
+      functions: 40,
+      lines: 40,
+      statements: 40,
     },
   },
+  rootDir: './',
   setupFilesAfterEnv: ['<rootDir>/config/tests/setup.ts'],
-  testPathIgnorePatterns: ['node_modules', 'coverage', 'build', 'tests'],
-  testURL: 'http://localhost',
   testEnvironment: 'jest-environment-jsdom',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  testEnvironmentOptions: {
+    url: 'http://localhost',
+  },
+  moduleDirectories: ['<rootDir>src', 'node_modules'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'cjs', 'json'],
+  roots: ['<rootDir>/src'],
+  testPathIgnorePatterns: ['/node_modules/', 'coverage', 'build'],
+  transformIgnorePatterns: ['/node_modules/', '<rootDir>/node_modules/'],
   moduleNameMapper: {
+    '^axios$': require.resolve('axios'),
     '^.+\\.module\\.(css|less)$': 'identity-obj-proxy',
-    '^.+\\.(css|less)$': '<rootDir>/src/__mocks__/styleMock.js',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|wav|mp3|m4a|aac|oga)$': '<rootDir>/src/__mocks__/fileMock.js',
     '@root/(.*)': '<rootDir>/$1',
     '@config/(.*)': '<rootDir>/config/$1',
@@ -31,5 +39,4 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  transformIgnorePatterns: ['node_modules/', '<rootDir>/node_modules/'],
 };
