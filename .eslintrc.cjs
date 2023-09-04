@@ -1,6 +1,8 @@
 module.exports = {
+  // verbose: true,
   root: true,
-  env: { browser: true, es2020: true, jest: true },
+  // env: { browser: true, es2020: true, jest: true },
+  env: { browser: true, es2020: true },
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -59,7 +61,7 @@ module.exports = {
       files: ['*.test.{ts, tsx}'],
       rules: {
         'no-console': ['error', { allow: ['warn', 'error'] }],
-      }
-    }
-  ]
+      },
+    },
+  ],
 };

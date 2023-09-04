@@ -1,21 +1,30 @@
-import { CheckOutlined, HomeOutlined, StarOutlined } from '@ant-design/icons';
+import { GroupOutlined, HomeOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { env } from '@environment/env';
+
 import message from './Sider.message';
 import AntdSider from './Sider.styles';
 
+type MenuItem = Required<MenuProps>['items'][number];
+
+function getItem(label: React.ReactNode, key: React.Key, icon?: React.ReactNode, children?: MenuItem[], type?: 'group'): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  } as MenuItem;
+}
+
 const items: MenuProps['items'] = [
-  { label: <FormattedMessage {...message.allArticles} />, icon: <HomeOutlined />, path: '/' },
-  { label: <FormattedMessage {...message.readLater} />, icon: <StarOutlined />, path: '/read-later' },
-  { label: <FormattedMessage {...message.read} />, icon: <CheckOutlined />, path: '/already-read' },
-].map(({ label, icon, path }) => ({
-  key: path,
-  icon,
-  label,
-}));
+  getItem(<FormattedMessage {...message.allArticles} />, '/', <HomeOutlined />),
+  ...Object.keys(env.feeds).map((item) => getItem(item, `/${item}`, <GroupOutlined />)),
+];
 
 const Sider = () => {
   const navigate = useNavigate();
@@ -29,7 +38,6 @@ const Sider = () => {
 
   return (
     <AntdSider breakpoint="lg" collapsedWidth="0">
-      <div className="demo-logo-vertical" />
       <Menu theme="dark" mode="inline" items={items} selectedKeys={[current]} onClick={onClick} />
     </AntdSider>
   );

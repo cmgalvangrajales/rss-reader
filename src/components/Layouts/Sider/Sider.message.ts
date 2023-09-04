@@ -6,10 +6,4 @@ export default defineMessages({
   allArticles: {
     id: `${prefix}.allArticles`,
   },
-  readLater: {
-    id: `${prefix}.readLater`,
-  },
-  read: {
-    id: `${prefix}.read`,
-  },
 });

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# testing
+/coverage
+
 # environment generated
 /src/environment
 

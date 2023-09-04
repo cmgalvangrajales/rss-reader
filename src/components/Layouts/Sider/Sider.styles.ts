@@ -12,12 +12,24 @@ const AntdSider = styled(Sider)<{ theme?: AppThemeInterface }>`
     background-color: ${({ theme }) => theme.palette.blue70};
   }
 
+  .ant-menu-item {
+    text-transform: capitalize;
+
+    &.ant-menu-item-selected {
+      background-color: ${({ theme }) => theme.palette.blue70} !important;
+      color: ${({ theme }) => theme.palette.white} !important;
+    }
+  }
+
   &,
   ul {
     background-color: ${({ theme }) => theme.palette.gray30} !important;
 
     li {
-      color: ${({ theme }) => theme.palette.blue70};
+      &,
+      .ant-menu-submenu-title {
+        color: ${({ theme }) => theme.palette.blue70};
+      }
 
       &:hover {
         background-color: ${({ theme }) => theme.palette.blue50} !important;
