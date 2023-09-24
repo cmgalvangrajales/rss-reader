@@ -16,23 +16,23 @@ const AntdSider = styled(Sider)<{ theme?: AppThemeInterface }>`
     text-transform: capitalize;
 
     &.ant-menu-item-selected {
-      background-color: ${({ theme }) => theme.palette.blue70} !important;
+      background-color: ${({ theme }) => theme.palette.purple30} !important;
       color: ${({ theme }) => theme.palette.white} !important;
     }
   }
 
   &,
   ul {
-    background-color: ${({ theme }) => theme.palette.gray30} !important;
+    background-color: ${({ theme }) => theme.palette.purple20} !important;
 
     li {
       &,
       .ant-menu-submenu-title {
-        color: ${({ theme }) => theme.palette.blue70};
+        color: ${({ theme }) => theme.palette.white};
       }
 
       &:hover {
-        background-color: ${({ theme }) => theme.palette.blue50} !important;
+        background-color: ${({ theme }) => theme.palette.purple50} !important;
       }
     }
   }

@@ -33,6 +33,11 @@ export const theme: AppThemeInterface = {
     gray20: '#878ECE',
     gray30: '#F1F1F9',
     white: '#FFFFFF',
+    purple10: '#545EB0',
+    purple20: '#363C70',
+    purple30: '#7380F0',
+    purple40: '#7986FC',
+    purple50: '#6772D6',
   },
   typography: {
     Base215: {
