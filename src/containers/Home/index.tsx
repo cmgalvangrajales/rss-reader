@@ -14,7 +14,7 @@ import { fixFeedsObjectKeys, getCurrentPathSnippets } from '@utils/utilities';
 
 import Breadcrumbs from '@components/commons/Breadcrumb';
 
-import Cards from './Components/Card';
+import Cards from './Components/Cards';
 import Search from './Components/Search';
 import message from './Home.message';
 import HomeStyles from './Home.styles';
