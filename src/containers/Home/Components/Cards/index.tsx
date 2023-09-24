@@ -1,4 +1,4 @@
-import { Empty, Image } from 'antd';
+import { Empty } from 'antd';
 import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,21 +32,22 @@ const Cards = ({ feed, itemToSeach }: CardsInterface): ReactNode => {
       const hasHtml: boolean = includesHTML(item.description);
 
       const itemKey = `${item.title.replace(/\s/g, '-')}-${item.origin}`;
-      const imageStyles = { width: '100%', height: '150px' };
 
       return (
-        <CardStyles.Card key={itemKey} onClick={() => handleRedirect(itemKey, item.origin)}>
+        <CardStyles.CardContainer key={item.title}>
           {includesImage ? (
-            <Image src={item.urlToImage || item.thumbnail} preview={false} style={imageStyles} />
+            <CardStyles.Image src={item.urlToImage || item.thumbnail} preview={false} />
           ) : (
-            <Image src={news} preview={false} style={imageStyles} />
+            <CardStyles.Image src={news} preview={false} />
           )}
-          <CardStyles.Date>{item.publishedAgo}</CardStyles.Date>
-          <CardStyles.Origin>{item.origin}</CardStyles.Origin>
-          <CardStyles.Title>{item.title}</CardStyles.Title>
-          {hasHtml ? null : <CardStyles.Description>{getShortenDescription(item.description)}</CardStyles.Description>}
-          <CardStyles.Author>{item.author}</CardStyles.Author>
-        </CardStyles.Card>
+          <CardStyles.CardData key={itemKey} onClick={() => handleRedirect(itemKey, item.origin)}>
+            <CardStyles.Date>{item.publishedAgo}</CardStyles.Date>
+            <CardStyles.Origin>{item.origin}</CardStyles.Origin>
+            <CardStyles.Title>{item.title}</CardStyles.Title>
+            {hasHtml ? null : <CardStyles.Description>{getShortenDescription(item.description)}</CardStyles.Description>}
+            <CardStyles.Author>{item.author}</CardStyles.Author>
+          </CardStyles.CardData>
+        </CardStyles.CardContainer>
       );
     });
   };
@@ -55,9 +56,9 @@ const Cards = ({ feed, itemToSeach }: CardsInterface): ReactNode => {
   const filteredItems = itemToSeach ? allItems.filter((item) => item.title.toLowerCase().includes(itemToSeach.toLowerCase())) : allItems;
 
   return (
-    <CardStyles.CardContainer $itemsNotFound={filteredItems.length === 0}>
+    <CardStyles.Container $itemsNotFound={filteredItems.length === 0}>
       {filteredItems.length > 0 ? getCards(filteredItems) : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
-    </CardStyles.CardContainer>
+    </CardStyles.Container>
   );
 };
 
