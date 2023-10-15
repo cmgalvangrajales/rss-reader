@@ -2,22 +2,6 @@ import axios from 'axios';
 
 import { ServiceBaseInterface } from './ServiceBase.types';
 
-const callService = <T>(call): Promise<T> => {
-  return new Promise<T>((resolve, reject) => {
-    axios(call)
-      .then((response) => resolve(response.data as T))
-      .catch((error) => {
-        const response = error.response?.data?.message;
-
-        if (response) {
-          reject(new Error(response));
-        } else {
-          reject(error);
-        }
-      });
-  });
-};
-
 /**
  * Execute get request
  *
@@ -25,14 +9,8 @@ const callService = <T>(call): Promise<T> => {
  *
  * @returns { Promise<T> } Request response
  */
-export const get = <T>({ servicePath, params, headers }: ServiceBaseInterface, options = {}): Promise<T> =>
-  callService({
-    method: 'GET',
-    params,
-    headers,
-    url: servicePath,
-    ...options,
-  });
+export const get = <T>({ servicePath, headers }: ServiceBaseInterface, options = {}): Promise<T> =>
+  axios.get(servicePath, { headers, ...options }).then((response) => response.data);
 
 /**
  * Execute post request
@@ -42,13 +20,7 @@ export const get = <T>({ servicePath, params, headers }: ServiceBaseInterface, o
  * @returns { Promise<T> } Request response
  */
 export const post = <T>({ servicePath, data, headers }: ServiceBaseInterface, options = {}): Promise<T> =>
-  callService({
-    method: 'POST',
-    data,
-    headers,
-    url: servicePath,
-    ...options,
-  });
+  axios.post(servicePath, data, { headers, ...options });
 
 /**
  * Execute put request
@@ -57,13 +29,7 @@ export const post = <T>({ servicePath, data, headers }: ServiceBaseInterface, op
  *
  * @returns { Promise<T> } Request response
  */
-export const put = <T>({ servicePath, data, headers }: ServiceBaseInterface): Promise<T> =>
-  callService({
-    method: 'PUT',
-    data,
-    headers,
-    url: servicePath,
-  });
+export const put = <T>({ servicePath, data, headers }: ServiceBaseInterface): Promise<T> => axios.put(servicePath, data, { headers });
 
 /**
  * Execute patch request
@@ -72,13 +38,7 @@ export const put = <T>({ servicePath, data, headers }: ServiceBaseInterface): Pr
  *
  * @returns { Promise<T> } Request response
  */
-export const patch = <T>({ servicePath, data, headers }: ServiceBaseInterface): Promise<T> =>
-  callService({
-    method: 'PATCH',
-    data,
-    headers,
-    url: servicePath,
-  });
+export const patch = <T>({ servicePath, data, headers }: ServiceBaseInterface): Promise<T> => axios.patch(servicePath, data, { headers });
 
 /**
  * Execute delete request
@@ -87,10 +47,4 @@ export const patch = <T>({ servicePath, data, headers }: ServiceBaseInterface): 
  *
  * @returns { Promise<T> } Request response
  */
-export const remove = <T>({ servicePath, data, headers }: ServiceBaseInterface): Promise<T> =>
-  callService({
-    method: 'DELETE',
-    data,
-    headers,
-    url: servicePath,
-  });
+export const remove = <T>({ servicePath, data, headers }: ServiceBaseInterface): Promise<T> => axios.delete(servicePath, { headers, data });
