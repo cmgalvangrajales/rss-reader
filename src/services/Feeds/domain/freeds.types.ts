@@ -26,6 +26,7 @@ export interface DetailItemInterface extends BasicFeedInterface {
 }
 
 export interface FeedByURLResponseInterface {
+  status?: 'string';
   origin?: string;
   items?: ItemInterface[];
   articles?: ArticleInterface[];

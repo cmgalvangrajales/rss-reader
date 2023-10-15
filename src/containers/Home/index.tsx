@@ -19,6 +19,7 @@ import Search from './Components/Search';
 import message from './Home.message';
 import HomeStyles from './Home.styles';
 
+// TODO: implement useQuery
 function Home({ intl: { formatMessage } }: { intl: IntlShape }) {
   const [feed, setFeed] = useState<DetailItemInterface[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
